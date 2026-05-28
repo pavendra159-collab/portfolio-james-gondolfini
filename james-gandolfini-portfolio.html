@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Gandolfini — Actor & Legend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #111217;
+    --charcoal: #1c1e24;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --red: #8b1a1a;
+    --red-warm: #b22222;
+    --cream: #f5efe3;
+    --muted: #7a7670;
+    --white: #fafaf8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    transition: opacity 0.3s, color 0.3s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 40%, rgba(139,26,26,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      linear-gradient(135deg, #0a0a0a 0%, #111217 50%, #0d0c0b 100%);
+  }
+
+  /* Decorative diagonal stripe */
+  .hero-stripe {
+    position: absolute;
+    top: 0; right: 25%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.25), transparent);
+    transform: skewX(-8deg);
+  }
+
+  /* Floating quote mark */
+  .hero-quote-mark {
+    position: absolute;
+    top: 12%;
+    right: 5%;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    line-height: 1;
+    color: rgba(201,168,76,0.04);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 6rem 7rem;
+    max-width: 780px;
+    animation: heroFadeUp 1.2s ease both;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: heroFadeUp 1s ease 0.3s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 9vw, 8.5rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: heroFadeUp 1s ease 0.5s both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: rgba(245,239,227,0.7);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: heroFadeUp 1s ease 0.7s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3.5rem;
+    opacity: 0;
+    animation: heroFadeUp 1s ease 0.9s both;
+  }
+
+  .stat-item { text-align: left; }
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 6rem;
+    writing-mode: vertical-rl;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    animation: heroFadeUp 1s ease 1.1s both;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-scroll::before {
+    content: '';
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    display: block;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 7rem 6rem;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-bottom: 3rem;
+  }
+
+  /* ── BIOGRAPHY ── */
+  .bio-section {
+    background: var(--deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .bio-text p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,239,227,0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .bio-highlight {
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.8rem;
+    background: rgba(201,168,76,0.05);
+    margin: 2rem 0;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  .bio-sidebar {}
+
+  .info-card {
+    background: var(--charcoal);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+  .info-val { color: var(--cream); text-align: right; max-width: 60%; }
+
+  /* ── FILMOGRAPHY ── */
+  .films-section {
+    background: var(--black);
+  }
+
+  .films-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5px;
+  }
+
+  .film-card {
+    background: var(--charcoal);
+    padding: 2rem;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .film-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.04), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .film-card:hover {
+    border-color: var(--gold);
+    background: #20222a;
+    transform: translateY(-3px);
+  }
+  .film-card:hover::before { opacity: 1; }
+
+  .film-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .film-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .film-role {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .film-desc {
+    font-size: 0.9rem;
+    color: rgba(245,239,227,0.6);
+    line-height: 1.6;
+  }
+
+  /* FEATURED */
+  .film-card.featured {
+    grid-column: span 2;
+    background: var(--red);
+    border-top: 3px solid var(--gold);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .film-card.featured:hover {
+    background: var(--red-warm);
+    transform: translateY(-3px);
+  }
+  .film-card.featured .film-year { color: var(--gold-light); }
+  .film-card.featured .film-title { font-size: 2rem; }
+  .film-card.featured .film-role { color: rgba(245,239,227,0.7); }
+  .film-card.featured .film-desc { color: rgba(245,239,227,0.8); font-size: 1rem; }
+  .featured-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── AWARDS ── */
+  .awards-section {
+    background: var(--charcoal);
+  }
+
+  .awards-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 4rem;
+  }
+
+  .award-big {
+    background: var(--black);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .award-big:hover { background: #141416; }
+
+  .award-big::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .award-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .award-count {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .award-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin: 0.5rem 0 0.3rem;
+  }
+
+  .award-detail {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .awards-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .award-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(0,0,0,0.3);
+    border-left: 3px solid var(--gold);
+    transition: background 0.3s;
+  }
+  .award-row:hover { background: rgba(201,168,76,0.07); }
+
+  .award-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .award-text { font-size: 0.95rem; color: rgba(245,239,227,0.8); }
+  .award-year { font-family: 'Bebas Neue', sans-serif; color: var(--gold); font-size: 0.9rem; margin-left: auto; }
+
+  /* ── QUOTES ── */
+  .quotes-section {
+    background: var(--black);
+  }
+
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .quote-card {
+    background: var(--deep);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .quote-card:hover { border-color: rgba(201,168,76,0.35); }
+
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0.8;
+    color: rgba(201,168,76,0.15);
+    position: absolute;
+    top: 1rem; left: 1.5rem;
+    pointer-events: none;
+  }
+
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--cream);
+    position: relative;
+    z-index: 1;
+    padding-top: 1.5rem;
+  }
+
+  /* ── BROADWAY ── */
+  .broadway-section {
+    background: var(--deep);
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .broadway-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .broadway-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.8rem 2rem;
+    background: var(--charcoal);
+    transition: background 0.3s;
+  }
+  .broadway-item:hover { background: #22242e; }
+
+  .b-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+  }
+
+  .b-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .b-role {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .b-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  /* ── LEGACY ── */
+  .legacy-section {
+    background: var(--red);
+    text-align: center;
+    padding: 8rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .legacy-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,0,0,0.4), transparent),
+      radial-gradient(ellipse 50% 50% at 80% 80%, rgba(0,0,0,0.3), transparent);
+    pointer-events: none;
+  }
+
+  .legacy-big {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    position: relative;
+  }
+
+  .legacy-credit {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 0.85rem;
+    color: rgba(245,239,227,0.6);
+    position: relative;
+  }
+
+  .legacy-line {
+    width: 80px;
+    height: 1px;
+    background: var(--gold-light);
+    margin: 1.5rem auto;
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 3rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+  }
+
+  .footer-dates {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  .footer-right {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    section { padding: 5rem 2rem; }
+    .hero-content { padding: 0 2rem 6rem; }
+    .bio-section { grid-template-columns: 1fr; gap: 3rem; }
+    .films-grid { grid-template-columns: 1fr; }
+    .film-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .awards-top { grid-template-columns: 1fr; }
+    .awards-list { grid-template-columns: 1fr; }
+    .quotes-grid { grid-template-columns: 1fr; }
+    .broadway-item { grid-template-columns: 70px 1fr; }
+    .b-tag { display: none; }
+    footer { padding: 2rem; }
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+    .nav-links { gap: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JG</div>
+  <ul class="nav-links">
+    <li><a href="#bio">Biography</a></li>
+    <li><a href="#films">Filmography</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#broadway">Broadway</a></li>
+    <li><a href="#legacy">Legacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-quote-mark">"</div>
+  <div class="hero-content">
+    <p class="hero-label">September 18, 1961 — June 19, 2013</p>
+    <h1 class="hero-title">James<br><em>Gandolfini</em></h1>
+    <p class="hero-sub">Actor. Producer. Icon. The man who redefined television drama with a performance described as the greatest in the history of the medium.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">3×</div>
+        <div class="stat-label">Emmy Awards</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5×</div>
+        <div class="stat-label">Screen Actors Guild</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Film & TV Credits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">25</div>
+        <div class="stat-label">Career Awards Won</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- BIOGRAPHY -->
+<section class="bio-section reveal" id="bio">
+  <div class="bio-text">
+    <p class="section-label">Biography</p>
+    <h2 class="section-title">The Man Behind<br>the Legend</h2>
+    <div class="section-divider"></div>
+    <p>Born on September 18, 1961, in Westwood, New Jersey, James Joseph Gandolfini Jr. grew up in Park Ridge in Bergen County. His father, an Italian immigrant and WWII Purple Heart recipient, worked as a bricklayer and head custodian. His mother was a high school food-service worker. Both parents were devout Catholics who spoke Italian at home.</p>
+    <div class="bio-highlight">
+      "I have small amounts of Mr. Soprano in me. I was 35, a lunatic, a madman." — Gandolfini on landing the role of a lifetime
+    </div>
+    <p>After earning a BA in Communications from Rutgers University in 1983, Gandolfini worked as a bouncer, bartender, and club manager in Manhattan before a friend persuaded him to attend an acting class at the famed Actors Studio. Intrigued, he studied acting while supporting himself as a deliveryman.</p>
+    <p>His Broadway debut came in 1992 in a revival of <em>A Streetcar Named Desire</em> alongside Alec Baldwin and Jessica Lange. His film breakthrough arrived with <em>True Romance</em> (1993), playing Virgil the hitman. But it was the role of Tony Soprano in HBO's <em>The Sopranos</em> (1999–2007) that made him a global icon — a performance critics have called the greatest in television history.</p>
+    <p>Beyond acting, Gandolfini produced HBO war documentaries, supported veterans' causes, and auctioned Tony Soprano memorabilia for the Wounded Warrior Project, raising nearly $200,000. He was a man of deep generosity — when he discovered he was the only Sopranos actor receiving DVD royalties, he personally wrote checks to every cast member.</p>
+    <p>He died unexpectedly of a heart attack on June 19, 2013, at age 51, while vacationing in Rome with his son. His legacy endures as one of the most influential performers in American entertainment history.</p>
+  </div>
+  <div class="bio-sidebar">
+    <div class="info-card">
+      <h3>Personal Details</h3>
+      <div class="info-row"><span class="info-key">Born</span><span class="info-val">September 18, 1961</span></div>
+      <div class="info-row"><span class="info-key">Birthplace</span><span class="info-val">Westwood, New Jersey</span></div>
+      <div class="info-row"><span class="info-key">Raised in</span><span class="info-val">Park Ridge, New Jersey</span></div>
+      <div class="info-row"><span class="info-key">Education</span><span class="info-val">Rutgers University, BA Communications</span></div>
+      <div class="info-row"><span class="info-key">Height</span><span class="info-val">6′ 0½″ (1.84 m)</span></div>
+      <div class="info-row"><span class="info-key">Heritage</span><span class="info-val">Italian-American</span></div>
+      <div class="info-row"><span class="info-key">Instruments</span><span class="info-val">Trumpet, Saxophone</span></div>
+    </div>
+    <div class="info-card">
+      <h3>Career Milestones</h3>
+      <div class="info-row"><span class="info-key">Broadway Debut</span><span class="info-val">1992 — A Streetcar Named Desire</span></div>
+      <div class="info-row"><span class="info-key">Film Breakthrough</span><span class="info-val">True Romance (1993)</span></div>
+      <div class="info-row"><span class="info-key">The Sopranos</span><span class="info-val">1999 – 2007</span></div>
+      <div class="info-row"><span class="info-key">First Emmy Win</span><span class="info-val">2000</span></div>
+      <div class="info-row"><span class="info-key">Golden Globe Win</span><span class="info-val">2000</span></div>
+      <div class="info-row"><span class="info-key">Total Credits</span><span class="info-val">50+ Film & Television</span></div>
+    </div>
+    <div class="info-card">
+      <h3>Hall of Fame</h3>
+      <div class="info-row"><span class="info-key">NJ Hall of Fame</span><span class="info-val">Class of 2014, Performing Arts</span></div>
+      <div class="info-row"><span class="info-key">Park Ridge, NJ</span><span class="info-val">"James Gandolfini Way" named in his honour</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILMOGRAPHY -->
+<section class="films-section reveal" id="films">
+  <p class="section-label">Career</p>
+  <h2 class="section-title">Filmography</h2>
+  <div class="section-divider"></div>
+  <div class="films-grid">
+
+    <!-- FEATURED: The Sopranos -->
+    <div class="film-card featured">
+      <div>
+        <div class="featured-badge">Signature Role</div>
+        <div class="film-year">1999 – 2007</div>
+        <div class="film-title">The Sopranos</div>
+        <div class="film-role">Tony Soprano — HBO Drama Series</div>
+      </div>
+      <div>
+        <div class="film-desc">The role that changed television forever. Gandolfini played Tony Soprano, an Italian-American mob boss navigating crime, family, and psychotherapy in New Jersey. By turns volcanic and brooding, the performance earned three Emmy Awards and a Golden Globe, and has been called the greatest and most influential in television history.</div>
+      </div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">1993</div>
+      <div class="film-title">True Romance</div>
+      <div class="film-role">Virgil, the Hitman</div>
+      <div class="film-desc">Breakthrough film role in Tony Scott's cult classic. A menacing, unforgettable villain that announced Gandolfini's arrival as a force to be reckoned with.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">1995</div>
+      <div class="film-title">Crimson Tide</div>
+      <div class="film-role">Lieutenant Bobby Dougherty</div>
+      <div class="film-desc">High-stakes submarine thriller alongside Denzel Washington and Gene Hackman. Demonstrated his ability to hold his own among Hollywood's elite.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">1995</div>
+      <div class="film-title">Get Shorty</div>
+      <div class="film-role">Bear, the Ex-Stuntman</div>
+      <div class="film-desc">Darkly comic crime film directed by Barry Sonnenfeld. The ensemble cast earned a Screen Actors Guild Award nomination for Outstanding Cast.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2001</div>
+      <div class="film-title">The Last Castle</div>
+      <div class="film-role">Yates</div>
+      <div class="film-desc">Military drama with Robert Redford. One of his highest-paid film roles at $5 million, showing his mainstream drawing power beyond the small screen.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2007</div>
+      <div class="film-title">Alive Day Memories</div>
+      <div class="film-role">Producer — HBO Documentary</div>
+      <div class="film-desc">Co-produced this acclaimed HBO documentary about injured Iraq War veterans. A testament to his social conscience and commitment to those who served.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2009</div>
+      <div class="film-title">Where the Wild Things Are</div>
+      <div class="film-role">Voice of Carol</div>
+      <div class="film-desc">Spike Jonze's beloved adaptation. Jonze later dedicated his Oscar-winning film <em>Her</em> to Gandolfini, a tribute to their creative bond.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2012</div>
+      <div class="film-title">Zero Dark Thirty</div>
+      <div class="film-role">CIA Director Leon Panetta</div>
+      <div class="film-desc">Kathryn Bigelow's Oscar-winning thriller about the hunt for Osama bin Laden. Showcased his authoritative screen presence in a pivotal supporting role.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2013</div>
+      <div class="film-title">Enough Said</div>
+      <div class="film-role">Albert</div>
+      <div class="film-desc">A warm, acclaimed romantic comedy — his final role before passing. Critics praised it as proof of his extraordinary range, earning a posthumous SAG nomination.</div>
+    </div>
+
+    <div class="film-card">
+      <div class="film-year">2014</div>
+      <div class="film-title">The Drop</div>
+      <div class="film-role">Cousin Marv</div>
+      <div class="film-desc">Released posthumously, this crime drama stands as his cinematic farewell — a master class in understated menace and complex characterisation.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards-section reveal" id="awards">
+  <p class="section-label">Recognition</p>
+  <h2 class="section-title">Awards & Honours</h2>
+  <div class="section-divider"></div>
+
+  <div class="awards-top">
+    <div class="award-big">
+      <div class="award-icon">🏆</div>
+      <span class="award-count">3×</span>
+      <div class="award-name">Primetime Emmy Award</div>
+      <div class="award-detail">Outstanding Lead Actor in a Drama Series (2000, 2001, 2003)</div>
+    </div>
+    <div class="award-big">
+      <div class="award-icon">🌟</div>
+      <span class="award-count">5×</span>
+      <div class="award-name">Screen Actors Guild Award</div>
+      <div class="award-detail">3 Individual + 2 Ensemble wins for The Sopranos</div>
+    </div>
+    <div class="award-big">
+      <div class="award-icon">🎭</div>
+      <span class="award-count">1×</span>
+      <div class="award-name">Golden Globe Award</div>
+      <div class="award-detail">Best Actor — Television Drama, 2000</div>
+    </div>
+  </div>
+
+  <div class="awards-list">
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">AFI Award — Actor of the Year, Male TV Series</span>
+      <span class="award-year">2002</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">TCA Award — Individual Achievement in Drama (×5)</span>
+      <span class="award-year">2000–05</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">Tony Award Nomination — Best Actor in a Play (God of Carnage)</span>
+      <span class="award-year">2009</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">Prism Award — Wartorn: 1861–2010 (producing)</span>
+      <span class="award-year">2011</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">Golden Globe Nominations (Total 4) for The Sopranos</span>
+      <span class="award-year">2000–03</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">Emmy Nomination — Outstanding Miniseries (Hemingway & Gellhorn, as producer)</span>
+      <span class="award-year">2012</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">SAG Nomination (Posthumous) — Enough Said</span>
+      <span class="award-year">2014</span>
+    </div>
+    <div class="award-row">
+      <div class="award-dot"></div>
+      <span class="award-text">New Jersey Hall of Fame Inductee — Performing Arts</span>
+      <span class="award-year">2014</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes-section reveal">
+  <p class="section-label">In His Own Words</p>
+  <h2 class="section-title">Quotes</h2>
+  <div class="section-divider"></div>
+  <div class="quotes-grid">
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">I'm a neurotic mess. I'm really basically just like a 260-pound Woody Allen.</p>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">I'm an actor. I do a job and I go home. Why are you interested in me? You don't ask a truck driver about his job.</p>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">I just don't think I'm that interesting. I don't think what I have to say is that interesting. To hear me go, "Blah, blah, blah, blah."</p>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">I love hearing people laugh. Especially in New York, and especially now. To hear somebody out there just belly-laughing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BROADWAY -->
+<section class="broadway-section reveal" id="broadway">
+  <p class="section-label">Stage</p>
+  <h2 class="section-title">Broadway</h2>
+  <div class="section-divider"></div>
+  <div class="broadway-list">
+    <div class="broadway-item">
+      <div class="b-year">1992</div>
+      <div>
+        <div class="b-title">A Streetcar Named Desire</div>
+        <div class="b-role">Supporting Role — with Alec Baldwin & Jessica Lange</div>
+      </div>
+      <div class="b-tag">Broadway Debut</div>
+    </div>
+    <div class="broadway-item">
+      <div class="b-year">1995</div>
+      <div>
+        <div class="b-title">On the Waterfront</div>
+        <div class="b-role">Charley Malloy — revival of the iconic drama</div>
+      </div>
+      <div class="b-tag">Revival</div>
+    </div>
+    <div class="broadway-item">
+      <div class="b-year">2009</div>
+      <div>
+        <div class="b-title">God of Carnage</div>
+        <div class="b-role">Michael — Brooklyn lawyer in Yasmina Reza's satirical comedy</div>
+      </div>
+      <div class="b-tag">Tony Nominated</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY -->
+<section class="legacy-section reveal" id="legacy">
+  <p class="section-label" style="color: var(--gold-light); margin-bottom: 2rem;">Legacy</p>
+  <p class="legacy-big">
+    "With all due respect to everybody else, Gandolfini is the best dramatic actor in TV history, and I don't know that anybody else is particularly close."
+  </p>
+  <div class="legacy-line"></div>
+  <p class="legacy-credit">Television Critic — widely cited tribute</p>
+  <br><br>
+  <p style="font-size: 1.05rem; color: rgba(245,239,227,0.75); max-width: 660px; margin: 0 auto; line-height: 1.8; position: relative;">
+    Spike Jonze dedicated his Academy Award–winning film <em>Her</em> to Gandolfini. His hometown of Park Ridge named a street "James Gandolfini Way." He was inducted into the New Jersey Hall of Fame in 2014. His Sopranos wardrobe raised nearly $200,000 for the Wounded Warrior Project. In death as in life, he remained one of the most beloved and respected figures in American culture.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">James Gandolfini</div>
+    <div class="footer-dates">September 18, 1961 — June 19, 2013 · New Jersey, USA</div>
+  </div>
+  <div class="footer-right">
+    Actor · Producer · Icon<br>
+    "The greatest dramatic actor in television history"
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
